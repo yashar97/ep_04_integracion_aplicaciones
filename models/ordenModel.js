@@ -1,15 +1,15 @@
 import { Schema, model } from "mongoose";
 
 const ordenSchema = new Schema({
-  mesaId: {
+  numeroMesa: {
     type: Number,
     required: true,
   },
   platillos: [
     {
-      platilloId: {
+      platillo: {
         type: Schema.Types.ObjectId,
-        ref: "Platillos",
+        ref: "Platillo",
         required: true,
       },
       cantidad: {
@@ -26,4 +26,4 @@ const ordenSchema = new Schema({
   },
 });
 
-export default model("Orden", ordenSchema);
+export default model("Ordenes", ordenSchema);

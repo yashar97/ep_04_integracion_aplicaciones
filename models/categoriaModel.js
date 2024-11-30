@@ -18,3 +18,5 @@ const categoriaSchema = new Schema({
     }
 
 });
+
+export default model('Categoria', categoriaSchema);

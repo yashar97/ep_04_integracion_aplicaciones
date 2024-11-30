@@ -4,12 +4,14 @@ import {
   obtenerOrdenPorMesa,
   editarOrden,
   eliminarOrden,
+  obtenerOrdenes
 } from "../controllers/orden.controller.js";
 
 const router = Router();
 
+router.get('/', obtenerOrdenes);
 router.post("/", crearOrden);
-router.get("/:mesaId", obtenerOrdenPorMesa);
+router.get("/:numeroMesa", obtenerOrdenPorMesa);
 router.put("/:id", editarOrden);
 router.delete("/:id", eliminarOrden);
 
