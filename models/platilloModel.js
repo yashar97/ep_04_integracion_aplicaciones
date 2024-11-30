@@ -21,4 +21,4 @@ const platilloSchema = new Schema({
     }]
 });
 
-export default model('Platillos', platilloSchema);
+export default model('Platillo', platilloSchema);
