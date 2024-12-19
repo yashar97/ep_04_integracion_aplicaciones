@@ -8,9 +8,10 @@ const autenticarMesero = async (req, res, next) => {
             const { id } = verificarToken(token);
 
             const mesero = await meseroModel.findById(id).select('-__v -password');
-            if (mesero.rol === 'admin') {
-                return next();
-            }
+
+            req.mesero = mesero;
+            return next();
+
 
             return res.status(403).json({ mensaje: 'No tienes los permisos para continuar' });
         } catch (error) {

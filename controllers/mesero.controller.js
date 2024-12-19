@@ -45,6 +45,7 @@ export const login = async (req, res) => {
         }
 
         const meseroAutenticado = {
+            _id: existe._id,
             nombre: existe.nombre,
             usuario: existe.usuario,
             rol: existe.rol,
@@ -96,7 +97,7 @@ export const actualizarMesero = async (req, res) => {
             rol: req.body.rol || existe.rol
         }
 
-        if(req.body.password) {
+        if (req.body.password) {
             meseroActualizado.password = hashearPassword(req.body.password) || existe.password
         }
 
@@ -107,4 +108,8 @@ export const actualizarMesero = async (req, res) => {
     } catch (error) {
         return res.status(500).json({ mensaje: error.message });
     }
+}
+
+export const obtenerPerfil = async (req, res) => {
+    return res.json(req.mesero);
 }
